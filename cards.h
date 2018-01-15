@@ -81,7 +81,8 @@ public:
 	int GetBank() const; // Returns the amount of money the player has
 	void SetBet();
 	void DisplayPlayerHand() const; // This is used for convenience in displaying card information. It is built on Display() in the Hand class.
-
+	void GetCard();
+	void Reset();
 
 private:
 	int bet;

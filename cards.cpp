@@ -335,3 +335,15 @@ void Player::DisplayPlayerHand() const
 {
 	playerHand.Display(playerNumber);
 }
+
+void Player::GetCard()
+{
+	playerHand.InsertCard();
+}
+
+void Player::Reset()
+{
+	playerHand.Clear();
+	bet = 0;
+	money = 100;
+}
