@@ -78,7 +78,6 @@ public:
 	Player(int m); // Provided Constructor
 	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
 	int GetBank() const; // Returns the amount of money the player has
-	int GetBank() const;                        // Returns the amount of money the player has
 	void SetBet();
 
 
