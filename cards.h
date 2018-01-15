@@ -71,7 +71,6 @@ public:
 
 private:
 	// You decide what fields you'll need...
-	double rankTotal; // the total rank of a hand
 	vector<Card> cards;	//The hand of cards
 	double scoreTotal;	// The cumulative card value in the hand
 };
