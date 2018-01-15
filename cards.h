@@ -62,12 +62,18 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
+	void SetScoreTotal(double newValue);		// Modifies the total score
+	double GetScoreTotal() const;				// Returns the cumulative score between the cards in the hand
+	void InsertCard();							// Inserts a card into the hand
+	void Clear();								// Resets the hand after the end of a game
 
 	// You decide what functions you'll need...
 
 private:
 	// You decide what fields you'll need...
 	double rankTotal; // the total rank of a hand
+	vector<Card> cards;	//The hand of cards
+	double scoreTotal;	// The cumulative card value in the hand
 };
 
 

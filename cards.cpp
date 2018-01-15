@@ -189,7 +189,57 @@ bool Card::operator < (Card card2) const {
 Hand class
 ************************************************* */
 // Implemente the member functions of the Hand class here.
+Hand::Hand()
+{
+	scoreTotal = 0;
+}
 
+void Hand::SetScoreTotal(double newValue)
+{
+	scoreTotal = newValue;
+}
+
+double Hand::GetScoreTotal() const
+{
+	return scoreTotal;
+}
+
+void Hand::InsertCard()
+{
+	Card newCard;
+	double cardScore;
+
+
+	// Increase the cumulative points of the cards in the hand (add 0.5 if newCard is a face card)
+	cardScore = newCard.get_rank();
+	if (cardScore > 7) scoreTotal += 0.5;
+	else scoreTotal += cardScore;
+
+	// Adds a card to an empty hand
+	if (cards.empty())
+	{
+		cards.push_back(newCard);
+		return;
+	}
+
+	// Adds a card to an existing hand such that the elements of the vector increase in rank as the index increases (adds card in order)
+	for (int i = 0; i < cards.size(); i++)
+	{
+		if (newCard < cards[i])
+		{
+			cards.insert(cards.begin() + i, newCard);
+			break;
+		}
+	}
+}
+
+
+void Hand::Clear()
+{
+	// Remove the cards from the hand as well as hte points associated with the hand
+	SetScoreTotal(0);
+	cards.clear();
+}
 
 
 /* *************************************************
