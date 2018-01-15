@@ -318,3 +318,8 @@ void Player::SetBet()
 			acceptableInput = true;
 	} while (!acceptableInput);
 }
+
+void Player::DisplayPlayerHand() const
+{
+	playerHand.Display(playerNumber);
+}

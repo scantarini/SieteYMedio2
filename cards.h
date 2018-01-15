@@ -80,12 +80,14 @@ public:
 	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
 	int GetBank() const; // Returns the amount of money the player has
 	void SetBet();
+	void DisplayPlayerHand() const; // This is used for convenience in displaying card information. It is built on Display() in the Hand class.
 
 
 private:
 	int bet;
 	int money;
-	Hand playerHand; // This will be added after modification of the hand class.
+	Hand playerHand;  // This will be added after modification of the hand class.
+	int playerNumber; // Distinguishes the player from the dealer
 };
 
 #endif
