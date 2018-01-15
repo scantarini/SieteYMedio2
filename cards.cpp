@@ -208,12 +208,12 @@ void Hand::InsertCard()
 {
 	Card newCard;
 	double cardScore;
-
-
+	
 	// Increase the cumulative points of the cards in the hand (add 0.5 if newCard is a face card)
 	cardScore = newCard.get_rank();
 	if (cardScore > 7) scoreTotal += 0.5;
 	else scoreTotal += cardScore;
+
 
 	// Adds a card to an empty hand
 	if (cards.empty())
@@ -233,10 +233,9 @@ void Hand::InsertCard()
 	}
 }
 
-
 void Hand::Clear()
 {
-	// Remove the cards from the hand as well as hte points associated with the hand
+	// Remove the cards from the hand as well as the points associated with the hand
 	SetScoreTotal(0);
 	cards.clear();
 }
@@ -248,6 +247,7 @@ Player class
 // Implemente the member functions of the Player class here.
 Player::Player()
 {
+	bet = 0;
 	SetBank(100);
 }
 
@@ -257,12 +257,39 @@ Player::Player(int m)
 	money = m;
 }
 
+// This modifies the amount of money the player has
 void Player::SetBank(int newBankBalance)
 {
 	money += newBankBalance;
 }
 
+// This returns the amount of money the player has
 int Player::GetBank() const
 {
 	return money;
+}
+
+void Player::SetBet()
+{
+	bool acceptableInput = false;
+
+	// Takes in the player's bet
+	// Error checks for negative numbers, non-integer types, and inputs that exceed the amount of money the player has.
+	do
+	{
+		cout << "You have $" << GetBank() << ". ";
+		cout << "Enter bet: ";
+		if (!(cin >> bet))
+		{
+			cin.clear();
+			cin.ignore(10000, '\n');
+			cout << "Invalid: Input must be a number. Please try again\n";
+		}
+		else if (!bet)
+			cout << "Invalid: Player cannot bet $0. Please try again.\n";
+		else if (bet < 0)
+			cout << "Invalid: Input must be positve. Please try again.\n";
+		else
+			acceptableInput = true;
+	} while (!acceptableInput);
 }

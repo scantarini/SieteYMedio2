@@ -86,8 +86,12 @@ public:
 	// You decide what functions you'll need...
 	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
 	int GetBank() const; // Returns the amount of money the player has
+	int GetBank() const;                        // Returns the amount of money the player has
+	void SetBet();
+
 
 private:
+	int bet;
 	int money;
 	// Hand playerHand; // This will be added after modification of the hand class.
 	// You decide what extra fields (if any) you'll need...
