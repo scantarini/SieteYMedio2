@@ -274,7 +274,6 @@ void Hand::Display(int playerNumber) const
 /* *************************************************
 Player class
 ************************************************* */
-// Implemente the member functions of the Player class here.
 Player::Player()
 {
 	playerNumber = 1;
@@ -309,11 +308,13 @@ int Player::GetBank() const
 	return money;
 }
 
+// This returns the amount of money that the player bet.
 int Player::GetBet() const
 {
 	return bet;
 }
 
+// This allows the player to set the amount of money they want to bet.
 void Player::SetBet()
 {
 	bool acceptableInput = false;
@@ -341,21 +342,25 @@ void Player::SetBet()
 	} while (!acceptableInput);
 }
 
+// This returns the cumulative number of points between all the cards in a player's hand.
 double Player::GetHandPoints()
 {
 	return playerHand.GetScoreTotal();
 }
 
+// This displays identifying information about the cards in the player's hand as well as the cumulative number of card points.
 void Player::DisplayPlayerHand() const
 {
 	playerHand.Display(playerNumber);
 }
 
+// This inserts a card into the player's Hand class member variable
 void Player::GetCard()
 {
 	playerHand.InsertCard();
 }
 
+// This resets the player's money, hand, and bet for potential functionality of playing several games
 void Player::Reset()
 {
 	playerHand.Clear();

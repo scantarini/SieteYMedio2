@@ -75,16 +75,16 @@ private:
 
 class Player {
 public:
-	Player(); // Default Constructor
-	Player(int playerNum); // Constructor with playerNumber parameter.
-	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
-	int GetBank() const; // Returns the amount of money the player has
-	int GetBet() const; // Returns the amount of money the player bet
-	void SetBet();
-	double GetHandPoints();			// Returns the total number of points in a player's hand
-	void DisplayPlayerHand() const; // This is used for convenience in displaying card information. It is built on Display() in the Hand class.
-	void GetCard();
-	void Reset();
+	Player();							// Default Constructor
+	Player(int playerNum);				// Constructor with playerNumber parameter.
+	void SetBank(int newBankBalance);	// Modifies the amount of money the player has
+	int GetBank() const;				// Returns the amount of money the player has
+	int GetBet() const;					// Returns the amount of money the player bet
+	void SetBet();						// This function allows the player to set the amount of money they want to bet.
+	double GetHandPoints();				// Returns the total number of points in a player's hand
+	void DisplayPlayerHand() const;		// This is used for convenience in displaying card information. It is built on Display() in the Hand class.
+	void GetCard();						// This function adds a card to a player's hand
+	void Reset();						// This function resets the player's information in case several games were to be played (not required)
 
 private:
 	int bet;
