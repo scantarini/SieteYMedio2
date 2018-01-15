@@ -196,3 +196,23 @@ Hand class
 Player class
 ************************************************* */
 // Implemente the member functions of the Player class here.
+Player::Player()
+{
+	SetBank(100);
+}
+
+// This is the implementation for the provided constructor.
+Player::Player(int m)
+{
+	money = m;
+}
+
+void Player::SetBank(int newBankBalance)
+{
+	money += newBankBalance;
+}
+
+int Player::GetBank() const
+{
+	return money;
+}
