@@ -60,17 +60,13 @@ private:
 
 class Hand {
 public:
-	// A vector of Cards
 	Hand();
 	void SetScoreTotal(double newValue);		// Modifies the total score
 	double GetScoreTotal() const;				// Returns the cumulative score between the cards in the hand
 	void InsertCard();							// Inserts a card into the hand
 	void Clear();								// Resets the hand after the end of a game
 
-	// You decide what functions you'll need...
-
 private:
-	// You decide what fields you'll need...
 	vector<Card> cards;	//The hand of cards
 	double scoreTotal;	// The cumulative card value in the hand
 };
@@ -79,11 +75,7 @@ private:
 class Player {
 public:
 	Player(); // Default Constructor
-	// Constructor. 
-	//    Assigns initial amount of money
 	Player(int m); // Provided Constructor
-
-	// You decide what functions you'll need...
 	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
 	int GetBank() const; // Returns the amount of money the player has
 	int GetBank() const;                        // Returns the amount of money the player has
@@ -93,8 +85,7 @@ public:
 private:
 	int bet;
 	int money;
-	// Hand playerHand; // This will be added after modification of the hand class.
-	// You decide what extra fields (if any) you'll need...
+	Hand playerHand; // This will be added after modification of the hand class.
 };
 
 #endif
