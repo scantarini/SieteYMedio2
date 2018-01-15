@@ -272,6 +272,7 @@ Player class
 // Implemente the member functions of the Player class here.
 Player::Player()
 {
+	playerNumber = 1;
 	bet = 0;
 	SetBank(100);
 }
