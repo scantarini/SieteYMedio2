@@ -20,6 +20,7 @@ using namespace std;
 int main() {
 	// NOTES TO SELF
 	// open fstream in main -- might keep open for several functions -- use reference
+	Player sampleInstantiation;
 
 
 	/* --STATEMENTS-- */
