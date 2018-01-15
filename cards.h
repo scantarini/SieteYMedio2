@@ -80,6 +80,7 @@ public:
 	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
 	int GetBank() const; // Returns the amount of money the player has
 	void SetBet();
+	double GetHandPoints();			// Returns the total number of points in a player's hand
 	void DisplayPlayerHand() const; // This is used for convenience in displaying card information. It is built on Display() in the Hand class.
 	void GetCard();
 	void Reset();

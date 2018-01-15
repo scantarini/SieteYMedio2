@@ -256,7 +256,7 @@ void Hand::Display(int playerNumber) const
 	{
 		cardNameSpanish = cards[i].get_spanish_rank() + " de " + cards[i].get_spanish_suit();
 		cout << "	" << setw(20) << cardNameSpanish;
-		cout << "(" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << '.)' << endl;
+		cout << "(" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << ")." << endl;
 	}
 
 	if (playerNumber == 1)
@@ -329,6 +329,11 @@ void Player::SetBet()
 		else
 			acceptableInput = true;
 	} while (!acceptableInput);
+}
+
+double Player::GetHandPoints()
+{
+	return playerHand.GetScoreTotal();
 }
 
 void Player::DisplayPlayerHand() const
