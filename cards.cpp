@@ -276,11 +276,20 @@ Player::Player()
 	SetBank(100);
 }
 
-// This is the implementation for the provided constructor.
+Player::Player(int playerNum)
+{
+	playerNumber = playerNum;
+	bet = 0;
+	SetBank(100);
+}
+
+// This is the implementation for the provided constructor (for reference)
+/*
 Player::Player(int m)
 {
 	money = m;
 }
+*/
 
 // This modifies the amount of money the player has
 void Player::SetBank(int newBankBalance)
@@ -314,6 +323,8 @@ void Player::SetBet()
 			cout << "Invalid: Player cannot bet $0. Please try again.\n";
 		else if (bet < 0)
 			cout << "Invalid: Input must be positve. Please try again.\n";
+		else if (bet > GetBank())
+			cout << "Invalid: That bet is too high. Please try again.\n";
 		else
 			acceptableInput = true;
 	} while (!acceptableInput);

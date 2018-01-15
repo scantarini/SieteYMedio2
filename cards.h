@@ -76,7 +76,7 @@ private:
 class Player {
 public:
 	Player(); // Default Constructor
-	Player(int m); // Provided Constructor
+	Player(int playerNum); // Constructor with playerNumber parameter.
 	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
 	int GetBank() const; // Returns the amount of money the player has
 	void SetBet();
