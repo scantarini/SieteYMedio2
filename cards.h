@@ -67,19 +67,24 @@ public:
 
 private:
 	// You decide what fields you'll need...
+	double rankTotal; // the total rank of a hand
 };
 
 
 class Player {
 public:
+	Player(); // Default Constructor
 	// Constructor. 
 	//    Assigns initial amount of money
-	Player(int m);
+	Player(int m); // Provided Constructor
 
 	// You decide what functions you'll need...
+	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
+	int GetBank() const; // Returns the amount of money the player has
 
 private:
 	int money;
+	// Hand playerHand; // This will be added after modification of the hand class.
 	// You decide what extra fields (if any) you'll need...
 };
 
