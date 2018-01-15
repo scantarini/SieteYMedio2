@@ -79,6 +79,7 @@ public:
 	Player(int playerNum); // Constructor with playerNumber parameter.
 	void SetBank(int newBankBalance);		// Modifies the amount of money the player has
 	int GetBank() const; // Returns the amount of money the player has
+	int GetBet() const; // Returns the amount of money the player bet
 	void SetBet();
 	double GetHandPoints();			// Returns the total number of points in a player's hand
 	void DisplayPlayerHand() const; // This is used for convenience in displaying card information. It is built on Display() in the Hand class.

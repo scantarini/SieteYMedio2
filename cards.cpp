@@ -304,6 +304,11 @@ int Player::GetBank() const
 	return money;
 }
 
+int Player::GetBet() const
+{
+	return bet;
+}
+
 void Player::SetBet()
 {
 	bool acceptableInput = false;
