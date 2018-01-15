@@ -226,7 +226,8 @@ void Hand::InsertCard()
 	// Adds a card to an existing hand such that the elements of the vector increase in rank as the index increases (adds card in order)
 	for (int i = 0; i < cards.size(); i++)
 	{
-		if (newCard < cards[i])
+		// Everything past the || counts for the cards being the same
+		if (newCard < cards[i] || newCard.get_rank() == cards[i].get_rank() || cards.begin() + i + 1 == cards.end())
 		{
 			cards.insert(cards.begin() + i, newCard);
 			break;
@@ -250,7 +251,6 @@ void Hand::Display(int playerNumber) const
 		cout << "Your cards:\n";
 	else
 		cout << "Dealer's cards:\n";
-
 
 	for (int i = 0; i < cards.size(); i++)
 	{
