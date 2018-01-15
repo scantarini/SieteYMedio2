@@ -65,6 +65,7 @@ public:
 	double GetScoreTotal() const;				// Returns the cumulative score between the cards in the hand
 	void InsertCard();							// Inserts a card into the hand
 	void Clear();								// Resets the hand after the end of a game
+	void Display(int playerNumber) const;						// Displays information about the cards in the hand
 
 private:
 	vector<Card> cards;	//The hand of cards

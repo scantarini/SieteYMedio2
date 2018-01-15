@@ -1,6 +1,7 @@
 #include "cards.h"
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 
 /*
 You might or might not need these two extra libraries
@@ -238,6 +239,30 @@ void Hand::Clear()
 	// Remove the cards from the hand as well as the points associated with the hand
 	SetScoreTotal(0);
 	cards.clear();
+}
+
+void Hand::Display(int playerNumber) const
+{
+	string cardNameSpanish; // Used for convenience for setw formatting
+	cout << left;
+	
+	if (playerNumber == 1)
+		cout << "Your cards:\n";
+	else
+		cout << "Dealer's cards:\n";
+
+
+	for (int i = 0; i < cards.size(); i++)
+	{
+		cardNameSpanish = cards[i].get_spanish_rank() + " de " + cards[i].get_spanish_suit();
+		cout << "	" << setw(20) << cardNameSpanish;
+		cout << "(" << cards[i].get_english_rank() << " of " << cards[i].get_english_suit() << '.' << endl;
+	}
+
+	if (playerNumber == 1)
+		cout << "Your total is " << scoreTotal << ". ";
+	else
+		cout << "The dealer's total is " << scoreTotal << ". ";
 }
 
 
