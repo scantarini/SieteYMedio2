@@ -18,7 +18,10 @@ using namespace std;
 
 // Stub for main
 int main() {
+	// NOTES TO SELF
 	// open fstream in main -- might keep open for several functions -- use reference
+
+
 	/* --STATEMENTS-- */
 	return 0;
 }
