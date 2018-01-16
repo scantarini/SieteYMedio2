@@ -299,7 +299,7 @@ Player::Player(int m)
 // This modifies the amount of money the player has
 void Player::SetBank(int newBankBalance)
 {
-	money += newBankBalance;
+	money = newBankBalance;
 }
 
 // This returns the amount of money the player has
@@ -365,5 +365,4 @@ void Player::Reset()
 {
 	playerHand.Clear();
 	bet = 0;
-	money = 100;
 }
