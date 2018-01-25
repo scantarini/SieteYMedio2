@@ -209,12 +209,12 @@ void Hand::InsertCard()
 {
 	Card newCard;
 	double cardScore;
+	string cardNameSpanish;
 	
 	// Increase the cumulative points of the cards in the hand (add 0.5 if newCard is a face card)
 	cardScore = newCard.get_rank();
 	if (cardScore > 7) scoreTotal += 0.5;
 	else scoreTotal += cardScore;
-
 
 	// Adds a card to an empty hand
 	if (cards.empty())
@@ -222,6 +222,12 @@ void Hand::InsertCard()
 		cards.push_back(newCard);
 		return;
 	}
+
+
+	cout << "\nNew Card:\n";
+	cardNameSpanish = newCard.get_spanish_rank() + " de " + newCard.get_spanish_suit();
+	cout << "	" << setw(20) << cardNameSpanish;
+	cout << "(" << newCard.get_english_rank() << " of " << newCard.get_english_suit() << ")." << endl;
 
 	// Adds a card to an existing hand such that the elements of the vector increase in rank as the index increases (adds card in order)
 	for (int i = 0; i < cards.size(); i++)
