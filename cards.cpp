@@ -276,6 +276,13 @@ void Hand::Display(int playerNumber) const
 		cout << "The dealer's total is " << scoreTotal << ". ";
 }
 
+// This function returns the number of cards in the hand. This allows the player to know the number of cards in their own hand.
+int Hand::GetNumCards() const
+{
+	if (cards.empty()) return 0;
+	return cards.size();
+}
+
 
 /* *************************************************
 Player class
@@ -371,4 +378,10 @@ void Player::Reset()
 {
 	playerHand.Clear();
 	bet = 0;
+}
+
+// This returns the number of cards in a player's hand
+int Player::GetNumCards() const
+{
+	return playerHand.GetNumCards();
 }
