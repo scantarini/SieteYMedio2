@@ -276,6 +276,11 @@ void Hand::Display(int playerNumber) const
 		cout << "The dealer's total is " << scoreTotal << ". ";
 }
 
+vector<Card>* Hand::SeeCards()
+{
+	return &cards;
+}
+
 
 /* *************************************************
 Player class
@@ -371,4 +376,10 @@ void Player::Reset()
 {
 	playerHand.Clear();
 	bet = 0;
+}
+
+// This allows the player to access information about their own hand.
+vector<Card>* Player::ReadCards()
+{
+	return playerHand.SeeCards();
 }
