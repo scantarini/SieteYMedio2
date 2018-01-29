@@ -5,6 +5,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "cards.h"
+#include <iomanip>
 using namespace std;
 
 const int BUST = -1; // -1 is used as a value indicating that the round has been lost by this player
@@ -66,20 +67,56 @@ double PlayTurn(Player& p, int playerNumber)
 	return p.GetHandPoints();
 }
 
+void FinalOutput(Player& p1, Player& p2, ofstream& out)
+{
+	string cardNameSpanish; // Used for convenience for setw formatting
+	out << setw(12) << " ";
+	out << "Money left: " << p1.GetBank() << endl;
+	out << "Bet: " << p1.GetBet() << endl << endl;
+	out << "Your cards:\n";
+
+	for (int i = 0; i < p1.ReadCards()->size(); i++)
+	{
+		cardNameSpanish = (*p1.ReadCards())[i].get_spanish_rank() + " de " + (*p1.ReadCards())[i].get_spanish_suit();
+		out << "	" << setw(20) << cardNameSpanish;
+		out << "(" << (*p1.ReadCards())[i].get_english_rank() << " of " << (*p1.ReadCards())[i].get_english_suit() << ")." << endl;
+	}
+
+	out << "Your total is " << p1.GetHandPoints() << ". \n\n";
+
+
+	out << "Dealer's cards:\n";
+	for (int i = 0; i < p2.ReadCards()->size(); i++)
+	{
+		cardNameSpanish = (*p2.ReadCards())[i].get_spanish_rank() + " de " + (*p2.ReadCards())[i].get_spanish_suit();
+		out << "	" << setw(20) << cardNameSpanish;
+		out << "(" << (*p2.ReadCards())[i].get_english_rank() << " of " << (*p2.ReadCards())[i].get_english_suit() << ")." << endl;
+	}
+	out << "The dealer's total is " << p1.GetHandPoints() << ". " << endl << endl;
+
+}
+
+
 int main() {
 	Player you(1);
 	Player dealer(2);
 	double score1 = 1;
 	double score2 = 1;
+	int gameNumber = 1;
 	ofstream output;
 
 	output.open("gamelog.txt");
-	output << "-----------------------------------------------";
+	output << left;
+	output << "-----------------------------------------------\n";
 
 	while (you.GetBank() != 0 && you.GetBank() < 1000)
 	{
 		score1 = PlayTurn(you, 1);
 		score2 = PlayTurn(dealer, 2);
+
+		output << "Game number: " << gameNumber;
+		FinalOutput(you, dealer, output);
+
 		if (score1 < score2 || score1 == BUST)
 		{
 			cout << "Too bad. You lose " << you.GetBet() << ".\n";
@@ -96,11 +133,10 @@ int main() {
 		}
 
 
-		//FinalOutput(you, dealer, output);
-		output << "-----------------------------------------------";
+		output << "-----------------------------------------------\n";
 
 
-
+		gameNumber++;
 		you.Reset();
 	}
 	if (!you.GetBank())
