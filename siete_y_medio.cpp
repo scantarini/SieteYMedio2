@@ -71,7 +71,9 @@ int main() {
 	Player dealer(2);
 	double score1 = 1;
 	double score2 = 1;
+	ofstream output;
 
+	output.open("gamelog.txt");
 	while (you.GetBank() != 0 && you.GetBank() < 1000)
 	{
 		score1 = PlayTurn(you, 1);
@@ -100,4 +102,6 @@ int main() {
 		return 0;
 	}
 	cout << "Congratulations. You beat the casino!\n\nBye!\n";
+
+	output.close();
 }
