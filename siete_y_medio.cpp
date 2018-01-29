@@ -74,6 +74,8 @@ int main() {
 	ofstream output;
 
 	output.open("gamelog.txt");
+	output << "-----------------------------------------------";
+
 	while (you.GetBank() != 0 && you.GetBank() < 1000)
 	{
 		score1 = PlayTurn(you, 1);
@@ -92,6 +94,13 @@ int main() {
 		{
 			cout << "Nobody wins!\n";
 		}
+
+
+		//FinalOutput(you, dealer, output);
+		output << "-----------------------------------------------";
+
+
+
 		you.Reset();
 	}
 	if (!you.GetBank())
