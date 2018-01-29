@@ -1,3 +1,4 @@
+(This file is formatted for notepad++)
 These files contain the C++ code for running the game Siete_Y_Medio.
 
 Note: There is thorough documentation in the files themselves,
@@ -26,7 +27,7 @@ siete_y_medio.cpp:
 ----------------------------------------------
 bool Bust(Player p)										 // This function returns whether or not the player's total hand points exceed 7.5 (BUST)
 bool DrawAgain()										 // This function prompts the user if they would like to draw another card.
-														 // If yes, return 1. If no, return 0.
+                                                         // If yes, return 1. If no, return 0.
 
 double PlayTurn(Player& p, int playerNumber);			 // This function is where a player draws their card. 
 														 //The return value is the total number of points of a player's hand (-1 for a bust).
