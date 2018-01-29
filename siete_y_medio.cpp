@@ -9,13 +9,14 @@ using namespace std;
 
 const int BUST = -1; // -1 is used as a value indicating that the round has been lost by this player
 
-
+// This function returns whether or not the player's total hand points exceed 7.5 (BUST)
 bool Bust(Player p)
 {
 	if (p.GetHandPoints() > 7.5) return 1;
 	return 0;
 }
 
+// This function prompts the user if they would like to draw another card. If yes, return 1. If no, return 0.
 bool DrawAgain()
 {
 	char ans;
@@ -28,6 +29,7 @@ bool DrawAgain()
 	return 0;
 }
 
+// This function is where a player draws their card. The return value is the total number of points of a player's hand (-1 for a bust).
 double PlayTurn(Player& p, int playerNumber)
 {
 	bool draw = true;
@@ -66,6 +68,7 @@ double PlayTurn(Player& p, int playerNumber)
 	return p.GetHandPoints();
 }
 
+// This function sends relevant information to the output file stream
 void FinalOutput(Player& p1, Player& p2, ofstream& out)
 {
 	string cardNameSpanish; // Used for convenience for setw formatting
@@ -97,23 +100,26 @@ void FinalOutput(Player& p1, Player& p2, ofstream& out)
 
 
 int main() {
-	Player you(1);
-	Player dealer(2);
-	double score1 = 1;
-	double score2 = 1;
-	int gameNumber = 1;
-	ofstream output;
+	Player you(1);		// Declaration of the player. The (1) sets the player's number to 1.
+	Player dealer(2);	// Declaration of the dealer
+	double score1 = 1;	// The number of points between the player's cards (cards of the "you" player)
+	double score2 = 1;	// The number of points between the dealer's cards
+	int gameNumber = 1;	// The current game number
+	ofstream output;	// The output file stream that outputs to gamelog.txt
 
 	output.open("gamelog.txt");
 	output << left;
 	output << "-----------------------------------------------\n";
 
+	// This loop runs each game and terminates when the player's balance is 0 or when the dealer has lost at least 900.
 	while (you.GetBank() != 0 && you.GetBank() < 1000)
 	{
 		score1 = PlayTurn(you, 1);
 		score2 = PlayTurn(dealer, 2);
 
 		output << "Game number: " << gameNumber;
+
+		// Sends relevant information to the output file.
 		FinalOutput(you, dealer, output);
 
 		if (score1 < score2 || score1 == BUST)
@@ -136,6 +142,8 @@ int main() {
 
 
 		gameNumber++;
+		
+		// Resets the player's bet and clears their hand after a game.
 		you.Reset();
 	}
 	if (!you.GetBank())

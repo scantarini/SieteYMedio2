@@ -292,6 +292,7 @@ Player::Player()
 	SetBank(100);
 }
 
+// Custom constructor that associates a number with a particular player -- (1 for you, 2 for the dealer)
 Player::Player(int playerNum)
 {
 	playerNumber = playerNum;

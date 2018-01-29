@@ -66,7 +66,7 @@ public:
 	void InsertCard();							// Inserts a card into the hand
 	void Clear();								// Resets the hand after the end of a game
 	void Display(int playerNumber) const;		// Displays information about the cards in the hand
-	vector<Card>* SeeCards();				// This allows the player to see their own cards
+	vector<Card>* SeeCards();					// This allows the player to see their own cards
 
 private:
 	vector<Card> cards;	//The hand of cards
@@ -86,7 +86,7 @@ public:
 	void DisplayPlayerHand() const;		// This is used for convenience in displaying card information. It is built on Display() in the Hand class.
 	void GetCard();						// This function adds a card to a player's hand
 	void Reset();						// This function resets the player's information in case several games were to be played (not required)
-	vector<Card>* ReadCards();		// This allows the player to access information about their own hand.
+	vector<Card>* ReadCards();			// This allows the player to access information about their own hand.
 
 private:
 	int bet;
