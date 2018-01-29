@@ -1,3 +1,5 @@
+These files contain the C++ code for running the game Siete_Y_Medio.
+
 Note: There is thorough documentation in the files themselves,
 but I will add an interface for all functions in the program
 at the bottom of this file for good measure.
