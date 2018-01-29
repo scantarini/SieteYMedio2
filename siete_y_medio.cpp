@@ -145,6 +145,7 @@ int main() {
 		
 		// Resets the player's bet and clears their hand after a game.
 		you.Reset();
+		dealer.Reset();
 	}
 	if (!you.GetBank())
 	{
